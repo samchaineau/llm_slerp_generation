@@ -1,0 +1,1279 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "1.0.0",
+  "dataset_name": "cnn_dailymail",
+  "dataset_size": 1369361929,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/cnn_dailymail@96df5e686bee6baa90b8bee7c28b81fa3fa6223d/1.0.0/train-00000-of-00003.parquet": {
+      "num_bytes": 256494215,
+      "checksum": null
+    },
+    "hf://datasets/cnn_dailymail@96df5e686bee6baa90b8bee7c28b81fa3fa6223d/1.0.0/train-00001-of-00003.parquet": {
+      "num_bytes": 256538980,
+      "checksum": null
+    },
+    "hf://datasets/cnn_dailymail@96df5e686bee6baa90b8bee7c28b81fa3fa6223d/1.0.0/train-00002-of-00003.parquet": {
+      "num_bytes": 259242781,
+      "checksum": null
+    },
+    "hf://datasets/cnn_dailymail@96df5e686bee6baa90b8bee7c28b81fa3fa6223d/1.0.0/validation-00000-of-00001.parquet": {
+      "num_bytes": 34657215,
+      "checksum": null
+    },
+    "hf://datasets/cnn_dailymail@96df5e686bee6baa90b8bee7c28b81fa3fa6223d/1.0.0/test-00000-of-00001.parquet": {
+      "num_bytes": 29994057,
+      "checksum": null
+    }
+  },
+  "download_size": 836927248,
+  "features": {
+    "article": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "highlights": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "2048_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "2048_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "2048_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "2048_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "2048_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "2048_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "1024_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "512_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "256_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "128_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "64_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "32_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "4_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "8_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_40": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_28": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_16": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_12": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_4": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "16_2": {
+      "length": {
+        "dtype": "float64",
+        "_type": "Value"
+      },
+      "top_5_i": {
+        "feature": {
+          "dtype": "int64",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "top_5_l": {
+        "feature": {
+          "dtype": "float32",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 2206289177,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 1261703785,
+      "num_examples": 287113,
+      "shard_lengths": [
+        115705,
+        115704,
+        55704
+      ],
+      "dataset_name": "cnn_dailymail"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 57732412,
+      "num_examples": 13368,
+      "dataset_name": "cnn_dailymail"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 49925732,
+      "num_examples": 11490,
+      "dataset_name": "cnn_dailymail"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
