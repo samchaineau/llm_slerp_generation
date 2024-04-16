@@ -4,6 +4,8 @@ This repo hosts codes and materials related to speeding LLMs' generative abiliti
 
 I propose a technique to modify the forward call of a LLM to reduce the sequence length of the input by merging elements using SLERP. The results shows a significative speed-up while preserving quality. 
 
+A notebook is available in "code/SLERP_inference_toobox.ipynb" to help you playing around and seeing the potential of this approach.
+
 ## Background
 
 Decoder-only Large Language Models are trained using a causal masking process enabling them to learn in a single forward pass to predict the next token based on the previous. When used for different use cases, we generate text by iteratively predict the token, append it to the en d of the sequence and re-run the process. Significant improvements have been made to speed up this (kv cache, quantization...). However, the core procedure remains unchanged and we generate each token one by one. 

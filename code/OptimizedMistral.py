@@ -107,12 +107,12 @@ class OptimizedInferenceMistral(MistralModel):
 
             if i == self.cutoff:
                 device = hidden_states.device if input_ids is not None else inputs_embeds.device
-                start = hidden_states[:,:self.step_to_decode,:]
-                end = hidden_states[:,self.step_to_decode:,:]
+                start = hidden_states[:,:self.starting_tokens,:]
+                end = hidden_states[:,self.starting_tokens:,:]
                 
-                if end.shape[1] > self.max_without:
-                    middle = end[:,:self.end_kept,:]
-                    end = end[:,self.end_kept:,:]
+                if end.shape[1] > self.max_tokens_before_keeping_end:
+                    middle = end[:,:-self.ending_tokens,:]
+                    end = end[:,-self.ending_tokens:,:]
                     middle = merge_tokens(middle)
                     middle = middle.half()
                     hidden_states = torch.cat((start, middle, end), axis = 1)
