@@ -1,6 +1,8 @@
 # Fast inference with token merging
 
-This repo hosts codes and materials related to speeding LLMs' generative abilities while preserving quality using token merging.
+This repo hosts codes and materials related to speeding LLMs' generative abilities while preserving quality using tokens' merging.
+
+I propose a technique to modify the forward call of a LLM to reduce the sequence length of the input by merging elements using SLERP. The results shows a significative speed-up while preserving quality. 
 
 ## Background
 
@@ -12,7 +14,7 @@ When giving looks at attention masks in different LLMs, we often see that to pre
 
 Keeping full sequence is also a challenge as it impacts strongly the computing power required by the model to process it. Transformers computing needs scale quadratically with the input sequence length, posing major challenges both from a training or generating aspect. 
 
-My question is: to predict accurately the next token regardless of the sequence lentgh, shall we keep the full past tokens or could we merge it ? 
+My question is: to predict accurately the next token regardless of the sequence lentgh, shall we keep the full past tokens or could we merge them ? 
 
 ## Merging is the new fashion 
 
@@ -32,10 +34,10 @@ The proposed merging procedure is as following:
     - being kept unchanged if its length is inferior to 3
     - being extended by 2 (one null token at the beginning and at the end) if the length is odd
     - being extended by 3 (one null token ath the beginning, at the penultimate position and one at the end) if the length is even
-- The new sequence is reformatted in a sequence of pairs of consecutive tokens with a parameter temperature defined appropriately if one of the token is null
+- The new sequence is reformatted in a sequence of pairs of consecutive tokens with a temperature defined appropriately if one of the token is null
 - The sequence of pairs is aggregated using a torch version of SLERP
 
-The core idea is to reduce the length of the sequence by a factor of two (not excactly as you get two or three aditional tokens). 
+The core idea is to reduce the length of the sequence by a factor of two (not exactly as you get two or three aditional tokens). 
 
 Under is a scheme representing the process of extending the sequence:
 
@@ -45,17 +47,26 @@ Here is a scheme summarizing the global merging procedure:
 
 ![merge](analytics_mistral_7B/merging.jpg)
 
-The merging could occur at different level of the model architecture. One downside is that it strongly relies on the underlying forward pass of the used model, requiring you to carefully rewrite the "merged" process depending on the chosen model. Another downside is the necessity of recomputing attention masks and possibly positional embeddings at each step.
+The merging could occur at different level of the model architecture. This parameter is referred as "layer cutoff". 
+Also, to ensure that a prompt is not completely merged, you can define a part of the sequence at the beginnig and/or at the end to be kept unchanged. It is more efficient for Instruct-based Models where the starting part of the prompt should be always reminded. 
+
+One downside of this methodology is that it strongly relies on the underlying forward pass of the used model, requiring you to carefully rewrite the "merged" process depending on the chosen model. Another downside is the necessity of recomputing attention masks and possibly positional embeddings at each step.
+
+The main advantage is its simplicity.
 
 ## Results and first comments
 
-I conducted experiments on a Mistral 7B model. My experiments is conducted on 5k texts randomly picked from the CNN daily mail datasets.
+I conducted experiments on a Mistral 7B Instruct V0.2 model. My experiment is split in two steps.
 
-I compare top 5 predictions of a base model kept unchanged and several variations of the merged model at inference. Using the huggingface pipeline helps me to easily run variations. I apply it on sequence of different lentghs (4, 8, 16, 32, 64, 128, 256, 512, 1024 and 2048) and apply the merge more or less early in the attention layers' module (referred as layer cut) with a max of 32.
+### Next Token Generation
+First I conducted tokens' generations on 5k texts randomly picked from the CNN daily mail datasets
 
-I may have not written it very properly at this stage so the time gain might change as we could re think more broadly the model forward pass if using such merging procedure. 
+I compare top 5 predictions of a base model kept unchanged and several variations (different layer cutoffs) of the merged model at inference. Using the huggingface pipeline helps me to easily run variations. I apply it on sequence of different lentghs (4, 8, 16, 32, 64, 128, 256, 512, 1024 and 2048).
 
-### Accuracy for the first predicted tokens
+Overall, merging tokens does not dramatically change the quality of the predictions and this is even more the case for shallower layers. This is also supported by a recent paper from Stanford proving that we could drop up to 40% of the layers (especially the last one) without seeing a decrease in quality.
+
+
+#### Accuracy for the first predicted tokens
 
 ![Accuracy](analytics_mistral_7B/accuracy.png)
 
@@ -63,31 +74,45 @@ The accuracy of the first predicted tokens for the merged and base model grow li
 
 No pattern in terms of shorter/longer sequence seems to emerge.
 
-### Top 3 accuracy for the first predicted tokens
+#### Top 3 accuracy for the first predicted tokens
 
 ![top3](analytics_mistral_7B/top3_accuracy.png)
 
+This plot shows the top 3 accuracy between the predicted tokens of the merged inference model and the base one.
 
-### Top 5 accuracy for the first predicted tokens
+#### Top 5 accuracy for the first predicted tokens
 
 ![top5](analytics_mistral_7B/top5_accuracy.png)
 
-### Intersection for the predicted tokens
 
-![intersection](analytics_mistral_7B/intersection.png)
+This plot shows the top 5 accuracy between the predicted tokens of the merged inference model and the base one.
 
-
-
-### (to be optimized) Estimated time gains
+#### (to be optimized) Estimated time gains
 
 ![timegain](analytics_mistral_7B/time_gains.png)
 
+This plot shows how many time faster the prediction of a token is between a base and merged model at different sequence length. This aprt could definitely be rewritten as many optimizations could be found in the code and the forward call.
+
+### AlpacaEval 2.0
+
+To see how bad/good the model is when merged at inference (layer cutoff set at 20), I compared a merged version to a vanilla one on the AlpacaEval benchmark (805 prompts). The leaderboard and annotations are available in the folder "code/alpaca". 
+
+Two comments can be made:
+- Its does not excessively impact the quality of the output as the merged model loses 4% of winrate (not length controlled) and 7% of winrate (length controlled). Even though it is not entirely sound, it demonstrates that the model is still "alive" and not too far from the base one.
+- Merging tokens increase the verbosity of the model as the average length of the output is increased by 600 tokens. This comes from the imapct of a shorter sequence fed to the layers, resulting in different positional encodings which tend to delay the occurrence of eos_token.
+
+The model still outperforms gemma-7b-it	 text_davinci_001 or nous-hermes-13b while averaging every pairs of tokens.
+
 ## Limitations and next steps
 
-As I mentionned, this work has been solely conducted on a Mistral 7B model which uses specific techniques (sliding window, RoPe embeddings). This merging idea could differ in terms of implementation depending on the model. 
+As I mentionned, this work has been solely conducted on a Mistral 7B model which uses specific techniques (sliding window, RoPe embeddings). This merging idea could differ in terms of implementation depending on the model. I also received questions whether this technique could scale to bigger models where the "needle in the haystack" effect tends to be less prone.
 
-Also, the merging code might be under-optimized. 
+Also, the merging code might be under-optimized for a perfect fast-call. 
 
-I intend to build a greater version of this technique to build eventually a wrapper class around any Causal LLM in HuggingFace enabling faster inference. 
+I intend to build a greater version of this technique to build eventually a wrapper class around any Causal LLM in HuggingFace enabling faster inference (like accelerate). 
 
-In the end, I deeply think a dual architecture exists for LLMs: oen for the training and one for the generation.
+In the end, I deeply think a dual architecture exists for LLMs: one for the training and one for the generation.
+
+## Contacts
+Mail: samuel.chaineau@outlook.fr
+huggingface : samchain
