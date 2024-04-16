@@ -52,6 +52,25 @@ Also, to ensure that a prompt is not completely merged, you can define a part of
 
 One downside of this methodology is that it strongly relies on the underlying forward pass of the used model, requiring you to carefully rewrite the "merged" process depending on the chosen model. Another downside is the necessity of recomputing attention masks and possibly positional embeddings at each step.
 
+For the moment, I developed a simple function that can be used at any moments in a forward loop. To show how it can be used, let's take a very simple example where I merge the tokens before the Language Modelling head.
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from forward_slerp import merge_tokens
+
+mistral = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
+tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
+
+sentence = "[INST] What is the biggest challenge in life ? [/INST]
+
+tokens = tokenizer(sentence, return_tensors = "pt)
+
+hidden_state = mistral.model(**tokens)
+merged = merge_tokens(hidden_state)
+
+preds = mistral.lm_head(merged)
+```
+
 ## Results and first comments
 
 I conducted experiments on a Mistral 7B Instruct V0.2 model. My experiment is split in two steps.
