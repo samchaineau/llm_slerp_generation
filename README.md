@@ -100,7 +100,7 @@ Two comments can be made:
 - Merging tokens increase the verbosity of the model as the average length of the output is increased by 600 tokens. This comes from the impact of a shorter sequence fed to the layers, resulting in different positional encodings which tend to delay the occurrence of eos_token.
 
 
-The model still outperforms gemma-7b-it	 text_davinci_001 or nous-hermes-13b while averaging every pairs of tokens.
+The model still outperforms gemma-7b-it	 text_davinci_001 or nous-hermes-13b while averaging every pairs of tokens. It ranks 88th on 145 tested models.
 
 
 ## Limitations and next steps
