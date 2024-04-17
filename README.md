@@ -6,6 +6,8 @@ I propose a technique to modify the forward call of a LLM to reduce the sequence
 
 A notebook is available in "code/SLERP_inference_toobox.ipynb" to help you playing around and seeing the potential of this approach.
 
+<img src="analytics_mistral_7B/generations_methods.png" alt="Accuracy" style="background-color: white;">
+
 ## Background
 
 Decoder-only Large Language Models are trained using a causal masking process enabling them to learn in a single forward pass to predict the next token based on the previous. When used for different use cases, we generate text by iteratively predict the token, append it to the en d of the sequence and re-run the process. Significant improvements have been made to speed up this (kv cache, quantization...). However, the core procedure remains unchanged and we generate each token one by one. 
@@ -40,6 +42,8 @@ The proposed merging procedure is as following:
 - The sequence of pairs is aggregated using a torch version of SLERP
 
 The core idea is to reduce the length of the sequence by a factor of two (not exactly as you get two or three additional tokens). 
+
+<img src="analytics_mistral_7B/token_merging_example.png" alt="Accuracy" style="background-color: white;">
 
 Under is a scheme representing the process of extending the sequence based on the sequence length:
 
