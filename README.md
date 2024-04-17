@@ -4,6 +4,10 @@ This repo hosts codes and materials related to speeding LLMs' generative abiliti
 
 I propose a technique to modify the forward call of a LLM to reduce the sequence length of the input by merging elements using SLERP. The results shows a significative speed-up while preserving quality. 
 
+<p align="center">
+  <img src="analytics_mistral_7B/demo.gif" alt="demo" width="800">
+</p>
+
 A notebook is available in "code/SLERP_inference_toobox.ipynb" to help you playing around and seeing the potential of this approach.
 
 <img src="analytics_mistral_7B/generations_methods.png" alt="Accuracy" style="background-color: white;">
