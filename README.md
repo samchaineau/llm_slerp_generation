@@ -71,9 +71,9 @@ from forward_slerp import merge_tokens
 mistral = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
 tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
 
-sentence = "[INST] What is the biggest challenge in life ? [/INST]
+sentence = "[INST] What is the biggest challenge in life ? [/INST]"
 
-tokens = tokenizer(sentence, return_tensors = "pt)
+tokens = tokenizer(sentence, return_tensors = "pt")
 
 hidden_state = mistral.model(**tokens)
 merged = merge_tokens(hidden_state)
