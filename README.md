@@ -143,5 +143,4 @@ I intend to build a greater version of this technique to build eventually a wrap
 In the end, I deeply think a dual architecture exists for LLMs: one for the training and one for the generation.
 
 ## Contacts
-Mail: samuel.chaineau@outlook.fr
 Huggingface : samchain
